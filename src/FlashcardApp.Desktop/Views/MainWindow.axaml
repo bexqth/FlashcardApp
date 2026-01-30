@@ -7,14 +7,33 @@
         x:Class="FlashcardApp.Desktop.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="FlashcardApp.Desktop">
+        Title="FlashcardApp"
+        Width="900" 
+        Height="600"
+        MinWidth="900" 
+        MinHeight="600"
+        xmlns:views="using:FlashcardApp.Desktop.Views"
+        >
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+    <SplitView IsPaneOpen="True" 
+                DisplayMode="Inline" 
+                OpenPaneLength="200" 
+                CompactPaneLength="50">
+        <SplitView.Pane>
+            <StackPanel Margin = "10,30,10,10">
+                <TextBlock Text="FlashcardsApp" Foreground = "#565264" FontSize="20" FontWeight="Bold" Margin="0,0,0,40"/>           
+                <Button Content="Dashboard" CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2"/>
+                <Button Content="Classes" CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2"/>
+                <Button Content="Pomodoro" CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2"/>
+                <Button Content="Stats" CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2"/>
+            </StackPanel>
+            
+        </SplitView.Pane>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <SplitView.Content>
+            <TransitioningContentControl />
+        </SplitView.Content>
+
+    </SplitView>
 
 </Window>
