@@ -1,0 +1,22 @@
+# --- .NET Core ---
+bin/
+obj/
+out/
+
+# --- IDE ---
+.vscode/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- DB ---
+ *.db
+
+# --- POS ---
+.DS_Store
+Thumbs.db
+
+# --- Avalonia ---
+artifacts/

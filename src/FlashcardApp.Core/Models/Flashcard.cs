@@ -1,0 +1,11 @@
+using System;
+
+namespace FlashcardApp.Core.Models;
+
+public class Flashcard
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public string Question { get; set; } = string.Empty;
+    public string Answer { get; set; } = string.Empty;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+}
