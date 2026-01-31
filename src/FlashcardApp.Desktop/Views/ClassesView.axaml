@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:FlashcardApp.Desktop.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="FlashcardApp.Desktop.Views.ClassesView"
+        x:DataType="vm:ClassesViewModel"
+        xmlns:material="using:Material.Icons.Avalonia"
+        xmlns:views="using:FlashcardApp.Desktop.Views"
+        Background = "#323232"
+        >
+    
+    <Grid Margin="20" RowDefinitions="Auto, *">
+        
+        <StackPanel Grid.Row="0" Margin="0,0,0,15">
+            <Grid ColumnDefinitions="*, Auto">
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Classes" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="Keep track of your classes here!" Foreground="#b5b7bb"/>
+                </StackPanel>
+
+                <Button Grid.Column="1" 
+                        Content="+"
+                        FontSize="24"
+                        Padding = "0 0 0 2"
+                        Width="40" 
+                        Height="40"
+                        Background="White"
+                        Foreground="#323232"
+                        CornerRadius="20"
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Right"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" /> 
+            </Grid>
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="#363736" Margin="5" CornerRadius="20" Padding="20" BoxShadow="0 4 15 0 #15000000" >
+            <ScrollViewer>
+                <UniformGrid Columns="3" VerticalAlignment="Top">
+                    <Border Grid.Column = "0" CornerRadius="20" Height="150" Padding = "10" Margin = "5" BoxShadow="2 4 4 0 #2c2c2c">
+                        <Grid RowDefinitions = "*, Auto">
+                            <material:MaterialIcon HorizontalAlignment="Center" Grid.Row="0" Kind="Folder" Width="80" Height="80" Foreground="#8FA18F"/>
+                            <TextBlock Grid.Row="1" HorizontalAlignment="Center" Text="ZTM" FontSize="24" FontWeight="Heavy" Foreground="White"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Column = "0" CornerRadius="20" Height="150" Padding = "10" Margin = "5" BoxShadow="2 4 4 0 #2c2c2c">
+                        <Grid RowDefinitions = "*, Auto">
+                            <material:MaterialIcon HorizontalAlignment="Center" Grid.Row="0" Kind="Folder" Width="80" Height="80" Foreground="#7D8C97"/>
+                            <TextBlock Grid.Row="1" HorizontalAlignment="Center" Text="PDS" FontSize="24" FontWeight="Heavy" Foreground="White"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Column = "0" CornerRadius="20" Height="150" Padding = "10" Margin = "5" BoxShadow="2 4 4 0 #2c2c2c">
+                        <Grid RowDefinitions = "*, Auto">
+                            <material:MaterialIcon HorizontalAlignment="Center" Grid.Row="0" Kind="Folder" Width="80" Height="80" Foreground="#CCB7AE"/>
+                            <TextBlock Grid.Row="1" HorizontalAlignment="Center" Text="Korean" FontSize="24" FontWeight="Heavy" Foreground="White"/>
+                        </Grid>
+                    </Border>
+                    
+                </UniformGrid>
+            </ScrollViewer>
+        </Border>
+
+    </Grid>
+    
+</UserControl>

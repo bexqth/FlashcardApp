@@ -22,8 +22,9 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         var services = new ServiceCollection();
-        services.AddTransient<DashboardViewModel>();
         services.AddTransient<MainWindowViewModel>();
+        services.AddTransient<DashboardViewModel>();
+        services.AddTransient<ClassesViewModel>();
 
         Services = services.BuildServiceProvider();
 

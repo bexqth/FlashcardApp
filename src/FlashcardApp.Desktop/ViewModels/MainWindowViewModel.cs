@@ -8,6 +8,7 @@ namespace FlashcardApp.Desktop.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     private DashboardViewModel _dashboardViewModel;
+    private ClassesViewModel _classesViewModel;
 
     [ObservableProperty]
     private bool _sidePanelShow = true;
@@ -15,9 +16,12 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private ViewModelBase? _currentPage;
 
-    public MainWindowViewModel(DashboardViewModel dashboardViewModel)
+    public MainWindowViewModel(
+        DashboardViewModel dashboardViewModel,
+        ClassesViewModel classesViewModel)
     {
         _dashboardViewModel = dashboardViewModel;
+        _classesViewModel = classesViewModel;
         ShowDashboardView();
     }
 
@@ -35,8 +39,15 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
 
+    [RelayCommand]
     public void ShowDashboardView()
     {
         CurrentPage = _dashboardViewModel;
+    }
+
+    [RelayCommand]
+    public void ShowClassesView()
+    {
+        CurrentPage = _classesViewModel;
     }
 }

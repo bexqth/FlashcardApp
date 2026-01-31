@@ -13,7 +13,6 @@
         Height="600"
         MinWidth="900" 
         MinHeight="600"
-        
         xmlns:views="using:FlashcardApp.Desktop.Views"
         >
 
@@ -25,8 +24,8 @@
     </Window.Styles>
 
 
-    <SplitView  Background = "#1E2124"
-                PaneBackground="#1E2124"
+    <SplitView  Background = "#323232"
+                PaneBackground="#323232"
                 IsPaneOpen="{Binding SidePanelShow}" 
                 DisplayMode="CompactInline" 
                 OpenPaneLength="200" 
@@ -48,14 +47,14 @@
                             Command = "{Binding SideButtonPressedCommand}"
                             Grid.Column="1"
                             FontSize="20"
-                            Background="#415A77"
+                            Background="#7D8C97"
                             Foreground="White"
                             CornerRadius="10"
                             BorderThickness="0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right"/>
                 </Grid>           
-                <Button CornerRadius="12" HorizontalAlignment="Stretch" Background="#415A77" Foreground="White" Padding = "10" Margin="0,2">
+                <Button Command ="{Binding ShowDashboardViewCommand}" CornerRadius="12" HorizontalAlignment="Stretch" Background="#7D8C97" Foreground="White" Padding = "10" Margin="0,2">
                     <Grid>
                         <material:MaterialIcon Kind="ViewDashboard" 
                                             IsVisible="{Binding !SidePanelShow}"
@@ -70,7 +69,7 @@
                                 Margin="5,0,0,0"/>
                     </Grid>
                 </Button>
-                <Button CornerRadius="12" HorizontalAlignment="Stretch" Background="#415A77" Foreground="White" Padding = "10" Margin="0,2">
+                <Button Command ="{Binding ShowClassesViewCommand}" CornerRadius="12" HorizontalAlignment="Stretch" Background="#7D8C97" Foreground="White" Padding = "10" Margin="0,2">
                     <Grid>
                         <material:MaterialIcon Kind="BookMultiple" 
                                             IsVisible="{Binding !SidePanelShow}"
@@ -85,7 +84,7 @@
                                 Margin="5,0,0,0"/>
                     </Grid>
                 </Button>
-                <Button CornerRadius="12" HorizontalAlignment="Stretch" Background="#415A77" Foreground="White" Padding = "10" Margin="0,2">
+                <Button CornerRadius="12" HorizontalAlignment="Stretch" Background="#7D8C97" Foreground="White" Padding = "10" Margin="0,2">
                     <Grid>
                         <material:MaterialIcon Kind="Timer" 
                                             IsVisible="{Binding !SidePanelShow}"
@@ -100,7 +99,7 @@
                                 Margin="5,0,0,0"/>
                     </Grid>
                 </Button>
-                <Button Content="Stats" CornerRadius="12" HorizontalAlignment="Stretch" Background="#415A77" Foreground="White" Padding = "10" Margin="0,2">
+                <Button Content="Stats" CornerRadius="12" HorizontalAlignment="Stretch" Background="#7D8C97" Foreground="White" Padding = "10" Margin="0,2">
                     <Grid>
                         <material:MaterialIcon Kind="ChartBar" 
                                             IsVisible="{Binding !SidePanelShow}"
