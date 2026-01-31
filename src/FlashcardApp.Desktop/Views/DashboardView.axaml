@@ -1,0 +1,100 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:FlashcardApp.Desktop.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="FlashcardApp.Desktop.Views.DashboardView"
+        x:DataType="vm:DashboardViewModel"
+        xmlns:material="using:Material.Icons.Avalonia"
+        xmlns:views="using:FlashcardApp.Desktop.Views"
+        >
+    
+        <Grid Margin="20" RowDefinitions="Auto, *">
+        
+        <StackPanel Grid.Row="0" Margin="0,0,0,15">
+            <Grid ColumnDefinitions="Auto, *, Auto">
+                
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Hello" FontSize="28" FontWeight="Bold" Foreground="#1A1C1E"/>
+                    <TextBlock Text="Control your flashcards and studies" Foreground="#74777F"/>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="White" Margin="5" CornerRadius="20" Padding="20" BoxShadow="0 4 15 0 #15000000" >
+            <Grid RowDefinitions="*, *, *">
+                <Grid Grid.Row="0" ColumnDefinitions="*, *, *">
+                    <Border Grid.Column="0" Background="#2F3E46" CornerRadius="20" Padding="20" Margin="5">
+                        <StackPanel>
+                            <material:MaterialIcon Kind="School" Width="24" Height="24" Foreground="White" Opacity="0.8" HorizontalAlignment="Right" Margin="0,-10,-10,0"/>
+                            <TextBlock Text="12" FontSize="32" FontWeight="Heavy" Foreground="White"/>
+                            <TextBlock Text="NUMBER OF CLASSES" FontSize="11" FontWeight="SemiBold" Foreground="#D1D1D1" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Border Grid.Column="1" Background="#2F3E46" CornerRadius="20" Padding="20" Margin="5">
+                        <StackPanel>
+                            <material:MaterialIcon Kind="FolderOutline" Width="24" Height="24" Foreground="White" Opacity="0.8" HorizontalAlignment="Right" Margin="0,-10,-10,0"/>
+                            <TextBlock Text="23" FontSize="32" FontWeight="Heavy" Foreground="White"/>
+                            <TextBlock Text="FOLDERS" FontSize="11" FontWeight="SemiBold" Foreground="#D1D1D1" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Border Grid.Column="2" Background="#2F3E46" CornerRadius="20" Padding="20" Margin="5">
+                        <StackPanel>
+                            <material:MaterialIcon Kind="Cards" Width="24" Height="24" Foreground="White" Opacity="0.8" HorizontalAlignment="Right" Margin="0,-10,-10,0"/>
+                            <TextBlock Text="234" FontSize="32" FontWeight="Heavy" Foreground="White"/>
+                            <TextBlock Text="FLASHCARDS" FontSize="11" FontWeight="SemiBold" Foreground="#D1D1D1" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="1" ColumnDefinitions="*, *, *">
+                    <Border Grid.Column="0" Background="#354F52" CornerRadius="20" Padding="20" Margin="5">
+                        <StackPanel>
+                            <material:MaterialIcon Kind="History" Width="24" Height="24" Foreground="White" Opacity="0.8" HorizontalAlignment="Right" Margin="0,-10,-10,0"/>
+                            <TextBlock Text="Anatómia" FontSize="24" FontWeight="Bold" Foreground="White" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Text="LAST STUDIED" FontSize="11" FontWeight="SemiBold" Foreground="#D1D1D1" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="1" Background="#354F52" CornerRadius="20" Padding="20" Margin="5">
+                        <StackPanel>
+                            <material:MaterialIcon Kind="BookOpenVariant" Width="24" Height="24" Foreground="White" Opacity="0.8" HorizontalAlignment="Right" Margin="0,-10,-10,0"/>
+                            <TextBlock Text="12" FontSize="32" FontWeight="Heavy" Foreground="White"/>
+                            <TextBlock Text="SESSIONS TODAY" FontSize="11" FontWeight="SemiBold" Foreground="#D1D1D1" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="2" Background="#354F52" CornerRadius="20" Padding="20" Margin="5">
+                        <StackPanel>
+                            <material:MaterialIcon Kind="TimerOutline" Width="24" Height="24" Foreground="White" Opacity="0.8" HorizontalAlignment="Right" Margin="0,-10,-10,0"/>
+                            <TextBlock Text="23m" FontSize="32" FontWeight="Heavy" Foreground="White"/>
+                            <TextBlock Text="TIME TODAY" FontSize="11" FontWeight="SemiBold" Foreground="#D1D1D1" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="2" ColumnDefinitions="*, *">
+                    <Border Grid.Column="0" Background="#52796F" CornerRadius="20" Padding="20" Margin="5">
+                        <StackPanel>
+                            <material:MaterialIcon Kind="CalendarClock" Width="24" Height="24" Foreground="White" Opacity="0.8" HorizontalAlignment="Right" Margin="0,-10,-10,0"/>
+                            <TextBlock Text="1h 12m" FontSize="28" FontWeight="Heavy" Foreground="White"/>
+                            <TextBlock Text="TIME YESTERDAY" FontSize="11" FontWeight="SemiBold" Foreground="#D1D1D1" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="1" Background="#52796F" CornerRadius="20" Padding="20" Margin="5">
+                        <StackPanel>
+                            <material:MaterialIcon Kind="ChartLine" Width="24" Height="24" Foreground="White" Opacity="0.8" HorizontalAlignment="Right" Margin="0,-10,-10,0"/>
+                            <TextBlock Text="234" FontSize="32" FontWeight="Heavy" Foreground="White"/>
+                            <TextBlock Text="TOTAL SESSIONS" FontSize="11" FontWeight="SemiBold" Foreground="#D1D1D1" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    </Grid>
+            </Grid>
+        </Border>
+
+    </Grid>
+    
+</UserControl>

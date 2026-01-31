@@ -109,7 +109,7 @@
         </SplitView.Pane>
 
         <SplitView.Content>
-            <TransitioningContentControl />
+            <TransitioningContentControl Content="{Binding CurrentPage}" />
         </SplitView.Content>
 
     </SplitView>

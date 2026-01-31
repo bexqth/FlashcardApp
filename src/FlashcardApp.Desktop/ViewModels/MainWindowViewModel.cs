@@ -7,13 +7,19 @@ namespace FlashcardApp.Desktop.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
+    private DashboardViewModel _dashboardViewModel;
+
     [ObservableProperty]
     private bool _sidePanelShow = true;
 
     [ObservableProperty]
     private ViewModelBase? _currentPage;
 
-    public string Greeting { get; } = "Welcome to Avalonia!";
+    public MainWindowViewModel(DashboardViewModel dashboardViewModel)
+    {
+        _dashboardViewModel = dashboardViewModel;
+        ShowDashboardView();
+    }
 
     [RelayCommand]
     public void SideButtonPressed()
@@ -27,5 +33,10 @@ public partial class MainWindowViewModel : ViewModelBase
         {
             SidePanelShow = true;
         }
+    }
+
+    public void ShowDashboardView()
+    {
+        CurrentPage = _dashboardViewModel;
     }
 }
