@@ -6,6 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="FlashcardApp.Desktop.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        xmlns:material="using:Material.Icons.Avalonia"
         Icon="/Assets/avalonia-logo.ico"
         Title="FlashcardApp"
         Width="900" 
@@ -15,17 +16,94 @@
         xmlns:views="using:FlashcardApp.Desktop.Views"
         >
 
-    <SplitView IsPaneOpen="True" 
-                DisplayMode="Inline" 
+    <SplitView 
+                IsPaneOpen="{Binding SidePanelShow}" 
+                DisplayMode="CompactInline" 
                 OpenPaneLength="200" 
-                CompactPaneLength="50">
+                CompactPaneLength="60">
         <SplitView.Pane>
             <StackPanel Margin = "10,30,10,10">
-                <TextBlock Text="FlashcardsApp" Foreground = "#565264" FontSize="20" FontWeight="Bold" Margin="0,0,0,40"/>           
-                <Button Content="Dashboard" CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2"/>
-                <Button Content="Classes" CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2"/>
-                <Button Content="Pomodoro" CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2"/>
-                <Button Content="Stats" CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2"/>
+                <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,20">
+                    <TextBlock Text="App"
+                            IsVisible = "{Binding SidePanelShow}"
+                            Grid.Column="0"
+                            Foreground="#565264" 
+                            FontSize="20" 
+                            FontWeight="Bold"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"/>
+
+                    <Button Content=" ≡ "
+                            Command = "{Binding SideButtonPressedCommand}"
+                            Grid.Column="1"
+                            FontSize="20"
+                            Background="#706677"
+                            Foreground="White"
+                            CornerRadius="10"
+                            BorderThickness="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"/>
+                </Grid>           
+                <Button CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2">
+                    <Grid>
+                        <material:MaterialIcon Kind="ViewDashboard" 
+                                            IsVisible="{Binding !SidePanelShow}"
+                                            Foreground = "White"
+                                            Width="20" Height="20" 
+                                            HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Dashboard" 
+                                IsVisible="{Binding SidePanelShow}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="5,0,0,0"/>
+                    </Grid>
+                </Button>
+                <Button CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2">
+                    <Grid>
+                        <material:MaterialIcon Kind="BookMultiple" 
+                                            IsVisible="{Binding !SidePanelShow}"
+                                            Foreground = "White"
+                                            Width="20" Height="20" 
+                                            HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Classes" 
+                                IsVisible="{Binding SidePanelShow}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="5,0,0,0"/>
+                    </Grid>
+                </Button>
+                <Button CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2">
+                    <Grid>
+                        <material:MaterialIcon Kind="Timer" 
+                                            IsVisible="{Binding !SidePanelShow}"
+                                            Foreground = "White"
+                                            Width="20" Height="20" 
+                                            HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Pomodoro" 
+                                IsVisible="{Binding SidePanelShow}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="5,0,0,0"/>
+                    </Grid>
+                </Button>
+                <Button Content="Stats" CornerRadius="12" HorizontalAlignment="Stretch" Background="#706677" Foreground="White" Padding = "10" Margin="0,2">
+                    <Grid>
+                        <material:MaterialIcon Kind="ChartBar" 
+                                            IsVisible="{Binding !SidePanelShow}"
+                                            Foreground = "White"
+                                            Width="20" Height="20" 
+                                            HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Statistics" 
+                                IsVisible="{Binding SidePanelShow}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="5,0,0,0"/>
+                    </Grid>
+                </Button>
             </StackPanel>
             
         </SplitView.Pane>
