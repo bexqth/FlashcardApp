@@ -25,6 +25,7 @@ public partial class App : Application
         services.AddTransient<MainWindowViewModel>();
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<ClassesViewModel>();
+        services.AddTransient<ClassFormViewModel>();
 
         Services = services.BuildServiceProvider();
 

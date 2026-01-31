@@ -9,6 +9,7 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     private DashboardViewModel _dashboardViewModel;
     private ClassesViewModel _classesViewModel;
+    private ClassFormViewModel _classFormViewModel;
 
     [ObservableProperty]
     private bool _sidePanelShow = true;
@@ -18,10 +19,12 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel(
         DashboardViewModel dashboardViewModel,
-        ClassesViewModel classesViewModel)
+        ClassesViewModel classesViewModel,
+        ClassFormViewModel classFormViewModel)
     {
         _dashboardViewModel = dashboardViewModel;
         _classesViewModel = classesViewModel;
+        _classFormViewModel = classFormViewModel;
         ShowDashboardView();
     }
 
@@ -49,5 +52,11 @@ public partial class MainWindowViewModel : ViewModelBase
     public void ShowClassesView()
     {
         CurrentPage = _classesViewModel;
+    }
+
+    [RelayCommand]
+    public void ShowClassFormView()
+    {
+        CurrentPage = _classFormViewModel;
     }
 }
