@@ -62,7 +62,7 @@ public partial class ClassFormViewModel : ViewModelBase
         }
         catch (System.Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.InnerException?.Message ?? ex.Message);
         }
     }
 

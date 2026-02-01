@@ -29,19 +29,24 @@ public partial class App : Application
         {
             Directory.CreateDirectory(dbFolderPath);
         }
-
+        
         string dbPath = Path.Combine(dbFolderPath, "flashcards.db");
 
         var services = new ServiceCollection();
         services.AddDbContext<FlashcardApp.Core.Data.AppDbContext>(options => options.UseSqlite($"Data Source={dbPath}"));
         services.AddSingleton<FlashcardApp.Core.Services.ClassService>();
-        
         services.AddTransient<MainWindowViewModel>();
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<ClassesViewModel>();
         services.AddTransient<ClassFormViewModel>();
 
         Services = services.BuildServiceProvider();
+
+        using (var scope = Services.CreateScope())
+        {
+            var context = scope.ServiceProvider.GetRequiredService<FlashcardApp.Core.Data.AppDbContext>();
+            context.Database.EnsureCreated();
+        }
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {

@@ -13,22 +13,5 @@ public class AppDbContext : DbContext
     {
         
     }
-
-    public AppDbContext CreateDbContext(string[] args)
-    {
-        var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-        optionsBuilder.UseSqlite("Data Source=../FlashcardApp.Core/Data/flashcards.db");
-
-        return new AppDbContext(optionsBuilder.Options);
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlite("Data Source=../FlashcardApp.Core/Data/flashcards.db");
-        }
-    }
-
     
 }
