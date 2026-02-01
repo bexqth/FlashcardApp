@@ -84,7 +84,7 @@
                                 Margin="5,0,0,0"/>
                     </Grid>
                 </Button>
-                <Button CornerRadius="12" HorizontalAlignment="Stretch" Background="#7D8C97" Foreground="White" Padding = "10" Margin="0,2">
+                <Button Command ="{Binding ShowClassFormViewCommand}" CornerRadius="12" HorizontalAlignment="Stretch" Background="#7D8C97" Foreground="White" Padding = "10" Margin="0,2">
                     <Grid>
                         <material:MaterialIcon Kind="Timer" 
                                             IsVisible="{Binding !SidePanelShow}"
