@@ -39,8 +39,7 @@
                     <TextBlock Text="Create new of edit existing class" Foreground="#b5b7bb"/>
                 </StackPanel>
 
-                <Button Grid.Column="1"
-                        
+                <Button Grid.Column="1"    
                         Content="&lt;"
                         Command = "{Binding BackButtonPressedCommand}"
                         FontSize="24"
@@ -61,36 +60,36 @@
             <Border HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" CornerRadius="20" BoxShadow="2 4 4 0 #2c2c2c">
                 <Grid ColumnDefinitions = "*, *">
                     <StackPanel Grid.Column = "0" Margin="20">
-                        <material:MaterialIcon HorizontalAlignment="Center" Grid.Row="0" Kind="Folder" Width="80" Height="80" Foreground="#7D8C97"/>
+                        <material:MaterialIcon HorizontalAlignment="Center" Grid.Row="0" Kind="Folder" Width="80" Height="80" Foreground="{Binding ClassHexColor}"/>
                         <TextBlock Text="Class name" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" TextTrimming="CharacterEllipsis"/>
                     </StackPanel>
                     
                     <StackPanel Grid.Column = "1" Margin="30 0 15 0">
                         <TextBlock Text="Class name" Margin="0 0 0 10" FontSize="20" FontWeight="Bold" Foreground="White" TextTrimming="CharacterEllipsis"/>
-                        <TextBox Watermark="e.g. Biology" Margin="0 0 0 15" HorizontalAlignment="Stretch" CornerRadius="8"/>
+                        <TextBox Text = "{Binding ClassName}" Watermark="e.g. Biology" Margin="0 0 0 15" HorizontalAlignment="Stretch" CornerRadius="8"/>
                         
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text="Colors" Margin="0 0 0 10" FontSize="20" FontWeight="Bold" Foreground="White" TextTrimming="CharacterEllipsis"/>
 
                             <UniformGrid Columns="5" HorizontalAlignment="Left" Margin="0 0 0 15">
-                                <Button Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
+                                <Button Command="{Binding ColorButtonPressedCommand}" CommandParameter="#746882" Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
                                     <Ellipse Width="32" Height="32" Fill="#746882"/>
                                 </Button>
-                                <Button Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
+                                <Button Command="{Binding ColorButtonPressedCommand}" CommandParameter="#b08aa9" Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
                                     <Ellipse Width="32" Height="32" Fill="#b08aa9"/>
                                 </Button>
-                                <Button Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
+                                <Button Command="{Binding ColorButtonPressedCommand}" CommandParameter="#7D8C97" Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
                                     <Ellipse Width="32" Height="32" Fill="#7D8C97"/>
                                 </Button>
-                                <Button Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
+                                <Button Command="{Binding ColorButtonPressedCommand}" CommandParameter="#8FA18F" Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
                                     <Ellipse Width="32" Height="32" Fill="#8FA18F"/>
                                 </Button>
-                                <Button Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
+                                <Button Command="{Binding ColorButtonPressedCommand}" CommandParameter="#434656" Background="Transparent" Padding="0" Margin="4" BorderThickness="0">
                                     <Ellipse Width="32" Height="32" Fill="#434656"/>
                                 </Button>
                             </UniformGrid>
 
-                            <Button Grid.Row="3" Margin="0 0 0 15" Content="Create class" Background="#7D8C97" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" Padding="10" CornerRadius="10" />
+                            <Button Command = "{Binding CreateClassButtonPressedCommand}" Grid.Row="3" Margin="0 0 0 15" Content="Create class" Background="#7D8C97" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" Padding="10" CornerRadius="10" />
                         </StackPanel>
                     </StackPanel>
                 </Grid>

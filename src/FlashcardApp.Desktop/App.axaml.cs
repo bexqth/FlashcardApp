@@ -8,6 +8,8 @@ using FlashcardApp.Desktop.ViewModels;
 using FlashcardApp.Desktop.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace FlashcardApp.Desktop;
 
@@ -21,7 +23,19 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        var dbFolderPath = Path.Combine(appDataPath, "FlashcardApp");
+        if (!Directory.Exists(dbFolderPath))
+        {
+            Directory.CreateDirectory(dbFolderPath);
+        }
+
+        string dbPath = Path.Combine(dbFolderPath, "flashcards.db");
+
         var services = new ServiceCollection();
+        services.AddDbContext<FlashcardApp.Core.Data.AppDbContext>(options => options.UseSqlite($"Data Source={dbPath}"));
+        services.AddSingleton<FlashcardApp.Core.Services.ClassService>();
+        
         services.AddTransient<MainWindowViewModel>();
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<ClassesViewModel>();
