@@ -19,4 +19,9 @@ public partial class ClassFormViewModel : ViewModelBase
 
     }
 
+    [RelayCommand]
+    public void BackButtonPressed ()
+    {
+        WeakReferenceMessenger.Default.Send(new NavigationMessage<int>(new NavigationData<int>("classesView", 0)));
+    }
 }

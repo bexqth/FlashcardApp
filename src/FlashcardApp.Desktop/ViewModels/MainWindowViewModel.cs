@@ -26,6 +26,29 @@ public partial class MainWindowViewModel : ViewModelBase
         _classesViewModel = classesViewModel;
         _classFormViewModel = classFormViewModel;
         ShowDashboardView();
+
+        // r - recepient
+        // m - message
+
+        WeakReferenceMessenger.Default.Register<NavigationMessage<int>>(this, (r, m) =>
+        {
+
+            HandleMessageByNumber(m.Value.ViewName);
+        });
+    }
+
+    public void HandleMessageByNumber(string viewName)
+    {
+        switch(viewName)
+        {
+            case "classFormView":
+                ShowClassFormView();
+            break;
+
+            case "classesView":
+                ShowClassesView();
+            break;
+        }
     }
 
     [RelayCommand]
