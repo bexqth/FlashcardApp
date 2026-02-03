@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using FlashcardApp.Core.Models;
+using FlashcardApp.Core.Services;
 using FlashcardApp.Desktop.ViewModels;
 
 namespace FlashcardApp.Desktop.ViewModels;
@@ -14,9 +16,23 @@ namespace FlashcardApp.Desktop.ViewModels;
 public partial class ClassesViewModel : ViewModelBase
 {
 
-    public ClassesViewModel()
+    [ObservableProperty]
+    private ObservableCollection<Class> _classes = new();
+    
+    private ClassService _classService;
+    public ClassesViewModel(ClassService classService)
     {
+        _classService = classService;
+    }
 
+    public async Task RetrieveClasses()
+    {
+        var list = await _classService.GetAll();
+        Classes.Clear();
+        foreach (var item in list)
+        {
+            Classes.Add(item);
+        }
     }
 
     [RelayCommand]

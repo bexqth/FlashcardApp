@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
@@ -72,8 +73,9 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    public void ShowClassesView()
-    {
+    public async Task ShowClassesView()
+    {   
+        await _classesViewModel.RetrieveClasses();
         CurrentPage = _classesViewModel;
     }
 
