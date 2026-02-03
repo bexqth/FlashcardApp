@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:FlashcardApp.Desktop.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="FlashcardApp.Desktop.Views.ClassFolderView"
+        x:DataType="vm:ClassFolderViewModel"
+        xmlns:material="using:Material.Icons.Avalonia"
+        xmlns:views="using:FlashcardApp.Desktop.Views"
+        Background = "#323232"
+        >
+    
+    <Grid Margin="20" RowDefinitions="Auto, *">
+        
+        <StackPanel Grid.Row="0" Margin="0,0,0,15">
+            <Grid ColumnDefinitions="*, Auto, Auto">
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="ZTM" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="All your flashcards are here!" Foreground="#b5b7bb"/>
+                </StackPanel>
+
+                <Button Grid.Column="1"
+                        Content="&lt;"
+                        FontSize="24"
+                        Padding = "0 0 0 2"
+                        Width="40" 
+                        Height="40"
+                        Background="White"
+                        Foreground="#323232"
+                        CornerRadius="20"
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Right"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center">
+                </Button>        
+
+                <Button Grid.Column="2"
+                        Margin = "5,0,0,0"    
+                        FontSize="24"
+                        Padding = "0 0 0 2"
+                        Width="40" 
+                        Height="40"
+                        Background="White"
+                        Foreground="#323232"
+                        CornerRadius="20"
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Right"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center">
+                    <material:MaterialIcon Kind="DotsVertical" Width="20" Height="20" />
+
+                    <Button.Flyout>
+                        <MenuFlyout>
+                        <MenuItem Header="Edit"/>
+                        <MenuItem Header="-"/>
+                        <MenuItem Header="Delete"/>        
+                        </MenuFlyout>
+                    </Button.Flyout>
+
+                </Button>                
+            </Grid>
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="#363736" Margin="5" CornerRadius="20" Padding="20" BoxShadow="0 4 15 0 #15000000">
+            <ScrollViewer>
+
+            </ScrollViewer>
+        </Border>
+
+    </Grid>
+    
+</UserControl>
