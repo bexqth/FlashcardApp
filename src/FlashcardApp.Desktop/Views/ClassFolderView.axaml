@@ -65,7 +65,26 @@
 
         <Border Grid.Row="1" Background="#363736" Margin="5" CornerRadius="20" Padding="20" BoxShadow="0 4 15 0 #15000000">
             <ScrollViewer>
+                <StackPanel Spacing="10">
+            
+            <Button HorizontalAlignment="Stretch" Padding="15,10" Background="Transparent" CornerRadius="15">
+                <Grid ColumnDefinitions="Auto, *, Auto">
+                    <material:MaterialIcon Grid.Column="0" Kind="CardMultiple" Width="24" Height="24" Foreground="#7D8C97" Margin="0,0,15,0"/>
+                    <TextBlock Grid.Column="1" Text="Lecture 1" FontSize="18" Foreground="White" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="2" Text="24 cards" Foreground="#7D8C97" VerticalAlignment="Center"/>
+                </Grid>
+            </Button>
 
+            <Button HorizontalAlignment="Stretch" Padding="15,10" Background="Transparent" CornerRadius="15">
+                <Grid ColumnDefinitions="Auto, *, Auto">
+                    <material:MaterialIcon Grid.Column="0" Kind="CardMultiple" Width="24" Height="24" Foreground="#7D8C97" Margin="0,0,15,0"/>
+                    <TextBlock Grid.Column="1" Text="Lecture 2" FontSize="18" Foreground="White" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="2" Text="12 cards" Foreground="#7D8C97" VerticalAlignment="Center"/>
+                </Grid>
+            </Button>
+
+        </StackPanel>
+            
             </ScrollViewer>
         </Border>
 
