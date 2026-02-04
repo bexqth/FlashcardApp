@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:FlashcardApp.Desktop.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        d:DesignWidth="400" d:DesignHeight="150"
+        x:Class="FlashcardApp.Desktop.Views.DeckFormView"
+        x:DataType="vm:DeckFormViewModel"
+        xmlns:material="using:Material.Icons.Avalonia"
+        xmlns:views="using:FlashcardApp.Desktop.Views"
+        Background = "Transparent"
+        >
+    
+        <Border Background="#363736" CornerRadius="20" Padding="25"
+            BoxShadow="0 8 20 0 #20000000"> <StackPanel Spacing="20">
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="15" Margin="0,0,0,0">
+                <material:MaterialIcon Kind="CardMultiple" 
+                                       Width="30" Height="30" 
+                                       Foreground="#8FA18F" 
+                                       VerticalAlignment="Center"/>
+                <TextBox Watermark="Name of your deck (e.g 'Anatomy')"
+                     
+                     Background="#2c2c2c"
+                     Foreground="White"
+                     BorderBrush="#555555"
+                     BorderThickness="1"
+                     CornerRadius="10"
+                     Padding="10"
+                     FontSize="16"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="15" Margin="0,10,0,0">
+                <Button Content="Cancel"
+                        
+                        Background="Transparent"
+                        Foreground="#8FA18F"
+                        BorderBrush="#8FA18F"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        Padding="10 5"
+                        FontSize="16"/>
+                
+                <Button Content="Create"
+                        
+                        Background="#8FA18F"
+                        Foreground="#363736"
+                        CornerRadius="10"
+                        Padding="10 5"
+                        FontSize="16"
+                        FontWeight="Bold"/>
+            </StackPanel>
+            
+        </StackPanel>
+    </Border>
+
+</UserControl>
