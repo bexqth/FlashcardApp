@@ -18,14 +18,18 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private ViewModelBase? _currentPage;
 
+    private ClassFolderViewModel _classFolderViewModel;
+
     public MainWindowViewModel(
         DashboardViewModel dashboardViewModel,
         ClassesViewModel classesViewModel,
-        ClassFormViewModel classFormViewModel)
+        ClassFormViewModel classFormViewModel,
+        ClassFolderViewModel classFolderViewModel)
     {
         _dashboardViewModel = dashboardViewModel;
         _classesViewModel = classesViewModel;
         _classFormViewModel = classFormViewModel;
+        _classFolderViewModel = classFolderViewModel;
         ShowDashboardView();
 
         // r - recepient
@@ -83,5 +87,11 @@ public partial class MainWindowViewModel : ViewModelBase
     public void ShowClassFormView()
     {
         CurrentPage = _classFormViewModel;
+    }
+
+    [RelayCommand]
+    public void ShowClassFolderView()
+    {
+        CurrentPage = _classFolderViewModel;
     }
 }

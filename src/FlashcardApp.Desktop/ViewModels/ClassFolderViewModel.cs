@@ -15,9 +15,22 @@ namespace FlashcardApp.Desktop.ViewModels;
 
 public partial class ClassFolderViewModel : ViewModelBase
 {
+
+    [ObservableProperty]
+    private bool _deckDialogFormVisible = false;
+
+    [ObservableProperty]
+    private DeckFormViewModel _deckForm;
+
     public ClassFolderViewModel()
     {
 
+    }
+
+    [RelayCommand]
+    public void ShowDeckDialogForm()
+    {
+        DeckDialogFormVisible = true;
     }
 
 }

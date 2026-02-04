@@ -39,6 +39,7 @@ public partial class App : Application
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<ClassesViewModel>();
         services.AddTransient<ClassFormViewModel>();
+        services.AddTransient<ClassFolderViewModel>();
 
         Services = services.BuildServiceProvider();
 

@@ -5,23 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" 
         d:DesignWidth="400" d:DesignHeight="150"
+        MinWidth="400" 
+        MinHeight="150"
+        MaxWidth="550" 
+        MaxHeight="150"
         x:Class="FlashcardApp.Desktop.Views.DeckFormView"
         x:DataType="vm:DeckFormViewModel"
         xmlns:material="using:Material.Icons.Avalonia"
         xmlns:views="using:FlashcardApp.Desktop.Views"
         Background = "Transparent"
         >
-    
+
+    <UserControl.Styles>
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="#414141" /> 
+            <Setter Property="BorderBrush" Value="#7D8C97" /> <Setter Property="BorderThickness" Value="2" />
+        </Style>
+        <Style Selector="TextBox:focus">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </UserControl.Styles>
+
         <Border Background="#363736" CornerRadius="20" Padding="25"
             BoxShadow="0 8 20 0 #20000000"> <StackPanel Spacing="20">
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="15" Margin="0,0,0,0">
                 <material:MaterialIcon Kind="CardMultiple" 
                                        Width="30" Height="30" 
-                                       Foreground="#8FA18F" 
+                                       Foreground="#7D8C97" 
                                        VerticalAlignment="Center"/>
                 <TextBox Watermark="Name of your deck (e.g 'Anatomy')"
-                     
+                     MaxWidth = "400"
+                     MinWidth = "200"
                      Background="#2c2c2c"
                      Foreground="White"
                      BorderBrush="#555555"
@@ -35,8 +50,8 @@
                 <Button Content="Cancel"
                         
                         Background="Transparent"
-                        Foreground="#8FA18F"
-                        BorderBrush="#8FA18F"
+                        Foreground="#7D8C97"
+                        BorderBrush="#7D8C97"
                         BorderThickness="1"
                         CornerRadius="10"
                         Padding="10 5"
@@ -44,7 +59,7 @@
                 
                 <Button Content="Create"
                         
-                        Background="#8FA18F"
+                        Background="#7D8C97"
                         Foreground="#363736"
                         CornerRadius="10"
                         Padding="10 5"
